@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: linear-gradient(rgb(145, 144, 190), rgb(190, 227, 221));
+}
+
+#main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+}
+
+#search-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    background-color: rgba(219, 240, 237,0.5);
+}
+
+#center-panel {
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(219, 240, 237,0.5);
+}
+
+#forecast {
+    width: 100vw;
+    height: 30vh;
+    display: flex;
+}
+
+#current-weather {
+    width: 100vw;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
