@@ -5,42 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/weather-icons.min.css" />
     <title>Weather App</title>
 </head>
 <body>
 
-    <div class="main">
-        <div id="search-card">
+    <div id="main">
+        <div id="search-card" class="borders">
+            <div id="search-label">
+                <h3 id="search-title">Search Here</h3>
+                <button id="search-btn">Icon!</button>
+            </div>
             <input type="text" id="search-box">
             <div id="results-box">Old searches here</div>
         </div>
 
         <div id="center-panel">
-            <div id="forecast">Forecast boxes here</div>
-            <div id="current-weather">
+            <div id="forecast" class="borders">
+                <!-- Forecast boxes rendered here with JS -->
+                <div id="forecast-boxes">
+                    <h2 class="date"></h2>
+                    <p class="icon"><img src="" alt="" id="icon"></p>
+                </div>
+            </div>
+            <div id="current-weather" class="borders">
                 <div id="location-card">
-                    <h1 id="location">Location</h1>
-                    <p class="weather-icon">Icon!</p>
+                    <h1 id="location"><span id="date"></span></h1>
+                    <p class="weather-icon"></p>
                 </div>
 
-                <div id="temperature">
-                    <h2 class="degrees"></h2>
-                    <div class="description">Conditions description</div>
+                <div id="condition">
+                    <h2 id="degrees"></h2>
+                    <div id="humidity"></div>
+                    <div id="wind-speed"></div>
+                    <div id="uv-index"></div>
+                    <div id="description"></div>
                 </div>
             </div>
         </div>
 
     </div>
-    <!-- <div class="location">
-        <h1>Location</h1>
-        <p>test</p>
-    </div>
 
-    <div class="temperature">
-        <h2 class="degree">Degrees here</h2>
-        <div class="weather-description">Condition description</div>
-    </div> -->
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
+        crossorigin="anonymous">
+    </script>
     <script src="assets/js/script.js"></script>
 </body>
 </html>
