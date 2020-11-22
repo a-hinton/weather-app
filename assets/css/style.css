@@ -1,11 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Electrolize&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Entire DOM styling */
 body {
-    background: linear-gradient(rgb(76, 76, 76), rgb(165, 165, 165));
+    background: linear-gradient(rgb(33,40,148), rgb(86, 97, 245));
+    font-size: 1rem;
+    font-family: 'Electrolize', sans-serif;
+    font-weight: normal;
+    color: white;
 }
 
 #main {
@@ -16,23 +23,30 @@ body {
     justify-content: space-around;
     align-items: center;
 }
+/* End entire DOM styling */
 
+/* Search column styling */
 #search-card {
     width: 18vw;
-    height: 90vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-items: center;
-    background-color: rgba(253,252,243, 0.6);
 }
 
 #search-label {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
 }
 
+#search {
+    display: flex;
+    justify-content: space-between;
+}
+/* End search column styling */
+
+/* Center panel styling */
 #center-panel {
     width: 78vw;
     height: 90vh;
@@ -40,16 +54,19 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: rgba(219, 240, 237,0.5); */
 }
 
 #forecast {
     width: 100%;
     height: 29%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    background-color: rgba(253,252,243,0.6);
+}
+
+.forecast-card {
+    background-color: royalblue;
+    padding: 10px;
 }
 
 #current-weather {
@@ -60,7 +77,6 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 2vh;
-    background-color: rgba(253,252,243,0.6);
 }
 
 #location-card {
@@ -68,7 +84,33 @@ body {
     justify-content: space-around;
     align-items: center;
 }
+/* End center panel styling */
+
+/* Individual element Styling */
+
 
 .borders {
     border-radius: 5px;
+}
+
+.cond-sub-el {
+    padding: 1px;
+}
+
+#uv-index-low {
+    background: green;
+    padding: 1px;
+    border: white solid 1px;
+}
+
+#uv-index-mod {
+    background: orange;
+    padding: 1px;
+    border: white solid 1px;
+}
+
+#uv-index-high {
+    background: red;
+    padding: 1px;
+    border: white solid 1px;
 }
