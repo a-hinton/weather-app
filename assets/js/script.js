@@ -26,12 +26,13 @@ $("#search-btn").on("click", function() {
 
     pastSearch.push(query);
     localStorage.setItem("city", JSON.stringify(pastSearch));
-    $("#forecast").empty();
     queryWeatherAPI(query);
+    renderPastSearches();
 })
 
 function queryWeatherAPI(query) {
     // Build the url to query the weather API
+    $("#forecast").empty();
     let weatherQueryURL = `http://api.openweathermap.org/data/2.5/weather?q=${query}&units=imperial&appid=${myKey}`;
     $.ajax({
         url: weatherQueryURL,
@@ -66,8 +67,10 @@ function buildUVQueryURL(lon, lat) {
 
 function renderCurrentWeather (response, query) {
     // Populate today's weather conditions
-    $("#location").text(response.name);
-    $("#today-date").text(moment().format("dddd, MMMM Do YYYY"));
+    let test = moment().format("dddd, MMMM Do YYYY");
+
+    $("#location").text(response.name + " " + test);
+    $("#today-date").text(test);
     $("#current-weather-sym").attr("src", "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png")
     $("#degrees").text("Temp: " + response.main.temp + "° F");
     $("#humidity").text("Humidity: " + response.main.humidity + "%");
@@ -75,7 +78,7 @@ function renderCurrentWeather (response, query) {
     $("#description").text("Current Conditions: " + response.weather[0].description);
     let lon = response.coord.lon;
     let lat = response.coord.lat;
-
+    
     // Call follow-up functions
     buildForecastQueryURL(query);
     buildUVQueryURL(lon, lat);
@@ -143,13 +146,17 @@ function renderForecast(response) {
 }
 
 function renderPastSearches() {
-    for (let i = 0; i <=4; i++) {
+    $("#past-searches").empty();
+    
+    for (let i = 1; i < 6; i++) {
         let pastSearchBox = $("<div/>", {
-            "id" : `pastSearch${i}`,
+            "id" : `pastSearch${pastSearch.length - i}`,
             "class" : "pastSearches",
-            "text" : pastSearch[i]
+            "text" : pastSearch[pastSearch.length - i]
         }).appendTo("#past-searches");
     }
 }
 
-searchHistory.on('click', queryWeatherAPI(this.text))
+$(document).on('click',".pastSearches", function(){
+    queryWeatherAPI($(this).text());
+})
